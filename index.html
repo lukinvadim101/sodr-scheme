@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Настройка схем</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://pagecdn.io/lib/bootstrap-select/1.13.18/js/i18n/defaults-ru_RU.js" crossorigin="anonymous"></script>   <!-- интеграция русского языка в плагине -->
+    
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      
+      <ul class="nav nav-tabs pt-5 border-bottom-0" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="active-schemes-tab" data-bs-toggle="tab" data-bs-target="#active-schemes" type="button" role="tab"  aria-selected="true">Активные схемы</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="disabled-schemes-tab" data-bs-toggle="tab" data-bs-target="#disabled-schemes" type="button" role="tab"  aria-selected="false">Не aктивные cхемы</button>
+        </li>
+      </ul>
+      <div class="tab-content pb-5" id="tabContent">
+          <ul class="tab-panel fade show active list-group pt-3" id="active-schemes-list" role="tabpanel" aria-labelledby="active-schemes-tab" >
+
+          </ul>
+      </div>
+
+      <form method="post" id="multiple_select_form">
+          <div class="form-container">
+            <div class="row mb-5">
+              <div class="form-group col-md-3">  <!-- выравнивание по колонкам -->
+                <h4 class="select-title">Макро-регион</h4>
+                <select name="regions" id="regions" class="form-control selectpicker" data-live-search="true" data-actions-box="true" multiple data-selected-text-format="count > 2">
+                  <option value="10">ЦФО</option>
+                  <option value="20">Сибирь</option>
+                  <option value="30" selected>Северо-Запад</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <h4 class="select-title">Область</h4>
+                <select name="districts" id="districts" class="form-control selectpicker" data-live-search="true" multiple data-selected-text-format="count > 2" data-actions-box="true">   
+                  <option value="100">Воронежская область</option>
+                  <option value="200">Калининградская область</option>
+                  <option value="300">Новосибирская область</option>
+                  <option value="300"selected>Пермский край</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <h4 class="select-title">Элеватор</h4>
+                <select name="silos" id="silos" class="form-control selectpicker" data-live-search="true" multiple data-selected-text-format="count > 2">
+                  <option value="1000" >T-1000</option>
+                  <option value="2000">A-300</option>
+                  <option value="3000" selected>Ф-500</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <h4 class="select-title">Крупа</h4>
+                <select name="crops" id="crops" class="form-control selectpicker" data-live-search="true" multiple data-actions-box="true" data-selected-text-format="count > 2">
+                  <option value="1000" >Рис</option>
+                  <option value="2000">Пшено</option>
+                  <option value="3000" selected>Соя</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row my-1 mb-5">  <!-- вторая строка -->
+              <div class="form-group col-md-3">
+                <h4 class="select-title">Коэфицент</h4>
+                <select name="coefficient" id="coefficient" class="form-control selectpicker" data-live-search="true" multiple data-max-options="1">
+                  <option value="1.4">1.4</option>
+                  <option value="1.1">1.1</option>
+                  <option value="0.9">0.9</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <h4 class="select-title">Перевалка</h4>
+                <select name="transshipment" id="transshipment" class="form-control selectpicker" title="Ничего не выбранно" multiple data-max-options="1"> 
+                  <option value="100">Перевалка и хранение</option>
+                  <option value="200">Без Перевалки</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <h4 class="select-title">Место назначение</h4>
+                <select name="destination" id="destination" class="form-control selectpicker" data-live-search="true" multiple data-actions-box="true">
+                  <option value="1000">Тамбовская область область</option>
+                  <option value="2000">Нижегородская область</option>
+                  <option value="300">Краснодарский край</option>
+                  <option value="300">Кемеровская обасть</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <h4 class="select-title">Режим</h4>
+                <select name="regim" id="regim" class="form-control selectpicker" multiple data-max-options="1">
+                  <option value="1000">Линейный элеватор -> приёмка</option>
+                  <option value="2000">Упрощённый режим</option>
+                  <option value="3000">DAP Калининград</option>
+                </select>
+              </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group d-flex justify-content-end">
+          <input type="button" class="btn btn-outline-success mr-1" value="Применить" id="applyBtn" />
+          <input type="button" class="btn btn-outline-danger" value="Очистить всё" id="deselectBtn" />
+        </div>
+        <div class="scheme-name__wrapper hide" id="schemeNameWrapper">
+            <label for="name_scheme" class="mr-1"><b>Имя:</b></label>
+            <input type="text" name="name_scheme" id="schemeNameInput"  required/> 
+            <div id="schemeName"></div>
+            <div class="pt-4 ">
+              <button type="submit" class="btn btn-success" data-state-flag="stateActive">Активировать</button>
+              <button type="submit" class="btn btn-outline-primary" data-state-flag="stateArchive"> Архивировать</button>
+            </div>
+        </div>
+    
+      </form>
+      
+    </div>
+  </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+.filter-option  {
+  white-space: normal; /* перенос текста */
+  box-sizing: border-box;
+  padding-right: 0px;
+ }
+ .form-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+ }
+ .select-title {
+   text-align: center;
+   font-weight: bold;
+ }
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.nav-link.active {
+  color: #007bff;
+}
+
+
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#schemeNameInput {
+  border: 1px solid #555;
+  padding-left: 10px;
+  width: 13.5em
+  
+}
+

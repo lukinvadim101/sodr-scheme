@@ -85,7 +85,7 @@
               </div>
               <div class="form-group col-md-3">
                 <h4 class="select-title">Место назначение</h4>
-                <select name="destination" id="destination" class="form-control selectpicker" data-live-search="true" multiple data-actions-box="true">
+                <select name="destination" id="destination" class="form-control selectpicker" data-live-search="true" multiple data-actions-box="true" data-selected-text-format="count > 2">
                   <option value="1000">Тамбовская область область</option>
                   <option value="2000">Нижегородская область</option>
                   <option value="300">Краснодарский край</option>
@@ -107,13 +107,35 @@
           <input type="button" class="btn btn-outline-success mr-1" value="Применить" id="applyBtn" />
           <input type="button" class="btn btn-outline-danger" value="Очистить всё" id="deselectBtn" />
         </div>
-        <div class="scheme-name__wrapper hide" id="schemeNameWrapper">
-            <label for="name_scheme" class="mr-1"><b>Имя:</b></label>
-            <input type="text" name="name_scheme" id="schemeNameInput"  required/> 
-            <div id="schemeName"></div>
-            <div class="pt-4 ">
-              <button type="submit" class="btn btn-success" data-state-flag="stateActive">Активировать</button>
-              <button type="submit" class="btn btn-outline-primary" data-state-flag="stateArchive"> Архивировать</button>
+        <div class="scheme-name__wrapper hide" id="schemeNameWrapper">            <!-- hide -->
+          <div class="row">
+            <div class="col-3">
+              <label for="name_scheme" ><b>Имя схемы:</b></label>
+            </div>
+            <div class="col-9">
+              <b >Элементы: </b>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <input type="text" name="name_scheme" id="schemeNameInput"  class="form-control" required/> 
+            </div>
+            <div id="schemeName" class="col-9 d-flex align-items-center"></div>
+          </div>
+          <div class="row pt-4">
+            <div class="input-group col-5">
+              <div class="custom-file ">
+                <input type="file" class="custom-file-input" id="inputFile">
+                <label class="custom-file-label" for="inputFile">Загрузить файл актуальных цен</label>
+              </div>
+              <!-- <div class="input-group-append">
+                <span class="input-group-text" id="uploadFile">Загурзить</span>
+              </div> -->
+            </div>
+          </div>
+            <div class="pt-5 d-flex justify-content-end">
+              <button type="submit" class="btn-lg btn-success border-0 mr-1" data-state-flag="stateActive">Активировать</button>
+              <button type="submit" class="btn-lg btn-primary border-0" data-state-flag="stateArchive"> Архивировать</button>
             </div>
         </div>
     

@@ -1,5 +1,5 @@
 
-const allSelectorsElem = [...document.querySelectorAll('.form-control')];
+const allSelectorsElem = [...document.querySelectorAll('.selectpicker')];
 let allSelectedOptions = [];
 
 function getSelectValues(select, index, flag = false) {
@@ -38,7 +38,7 @@ function showSelect(){
   if (schemeTxt !== '') {
     removeAllChildNodes(schemeName);
     schemeName.insertAdjacentHTML("beforeend", 
-      `<div class='insertSelection pt-3'><b>Элементы: </b>${schemeTxt}</div>`);
+      `<div class='insertSelection'>${schemeTxt}</div>`);
     schemeNameWrapper.classList.remove('hide');
   }
   

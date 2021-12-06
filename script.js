@@ -215,15 +215,15 @@ activeSchemesList.addEventListener('click', (e)=> {
 });
 
 const form = document.querySelector('#multiple_select_form');
+let schemeNameValue = document.querySelector('#schemeNameInput');
 
 const onSubmit = (e)=> {
-  const name = document.querySelector('#schemeNameInput').value;
   e.preventDefault();
   const {stateFlag} = e.submitter.dataset;
 
   const newScheme = {
     id: Date.now(),
-    name,
+    name: schemeNameValue.value,
     regions: allSelectedOptions[0],
     districts: allSelectedOptions[1], 
     silos: allSelectedOptions[2],
@@ -239,13 +239,17 @@ const onSubmit = (e)=> {
   if (stateFlag === 'stateActive') {
     state.active.push(newScheme);
     activeSchemesList.insertAdjacentHTML('beforeend', dataParse(state.active, 'Архивировать')); 
-    disabledSchemesTab.classList.add('active');
+    activeSchemesTab.classList.add('active'); 
+    disabledSchemesTab.classList.remove('active');
    
   } else {
     state.archive.push(newScheme);
     activeSchemesList.insertAdjacentHTML('beforeend', dataParse(state.archive, 'Активировать'));
-    activeSchemesTab.classList.add('active'); 
+    activeSchemesTab.classList.remove('active'); 
+    disabledSchemesTab.classList.add('active');
   }
+  schemeNameValue.value = '';
+  removeAllChildNodes(schemeName);
   addBtnsListeners(stateFlag);    
   
 };
